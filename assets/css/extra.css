@@ -1,0 +1,17 @@
+.budget_dist div {
+    text-align: center;
+}
+.budget_dist div img {
+    width: 80%;
+}
+
+.proposal_details {
+}
+
+.proposal_details p {
+}
+
+.flash_success {
+    background-color: #f5f5f5;
+    padding: 1em;
+}

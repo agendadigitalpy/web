@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>#AgendaDigital Paraguay - Propuestas</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="/assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+</head>
+
+<body class="is-preload">
+	<div id="wrapper">
+		<header id="header">
+			<div class="inner">
+				<a href="/" class="logo">
+					<span class="symbol">
+						<img src="/assets/images/logo.png" />
+					</span>
+					<span class="title">#AgendaDigital</span>
+				</a>
+
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="/">Inicio</a></li>
+				<li><a href="/propuestas">Propuestas</a></li>
+				<li><a href="/documentacion">Documentación</a></li>
+				<li><a href="/seguimiento">Seguimiento</a></li>
+				<li><a href="/gobierno-digital">Componente 1: Gobierno Digital</a></li>
+				<li><a href="/economia-digital">Componente 2: Economía Digital</a></li>
+				<li><a href="/conectividad">Componente 3: Conectividad</a></li>
+				<li><a href="/fortalecimiento-institucional">Componente 4: Fortalecimiento Institucional</a></li>
+			</ul>
+		</nav>
+		<div id="main">
+			<div class="inner">
+				{{ if .success }}
+				<p class="flash-success"><b>¡Gracias por tu aporte, será publicado en breve!</b></p>
+				{{ end }}
+
+				{{ if .error }}
+				<p class="flash-success"><b>{{ .message }}</b></p>
+				{{ end }}
+				<header>
+					<h1>Creá tu propuesta<br /></h1>
+					<p>También podes incluir consultas puntuales sobre los distintos componentes del programa. En el caso de que necesites adjuntar más información, es posible agregar enlaces.</p>
+					<p>Haremos lo posible para consultar a las autoridades y mantenerte al tanto.</p>
+					<p>Tu dirección de correo no se publicará y se almacenará con el propósito de seguimiento.</p>
+				</header>
+
+				<section>
+					<form method="post" action="/propuestas">
+						<div class="row gtr-uniform">
+							<div class="col-6 col-12-xsmall">
+								<input type="text" name="name" value="" placeholder="Nombre" required>
+							</div>
+							<div class="col-6 col-12-xsmall">
+								<input type="email" name="email" value="" placeholder="Correo Electrónico" required>
+							</div>
+							<div class="col-12">
+								<label for="category">Seleccioná un componente</label>
+								<select name="category">
+									<option value="0">General / Sin componente específico</option>
+									<option value="1">1 - Gobierno Digital</option>
+									<option value="2">2 - Economía Digital</option>
+									<option value="3">3 - Conectividad</option>
+									<option value="4">4 - Fortalecimiento Institucional</option>
+								</select>
+							</div>
+							<div class="col-12">
+								<input type="text" name="title" value=""
+									placeholder="Título de tu propuesta, ejemplo: Sugerencia para el producto 15" required>
+							</div>
+							<div class="col-12">
+								<div class="textarea-wrapper"><textarea name="content"
+										placeholder="Escribí aquí tu propuesta" rows="3"
+										style="overflow: hidden; resize: none; height: 79px;" required></textarea></div>
+							</div>
+							<div class="col-12">
+								<ul class="actions">
+									<li><input type="submit" value="Enviar" class="primary"></li>
+								</ul>
+							</div>
+						</div>
+					</form>
+				</section>
+
+				<section>
+					<h3>Últimas propuestas recibidas</h3>
+					<div class="table-wrapper">
+						<table class="alt">
+							<thead>
+								<tr>
+									<th>Fecha</th>
+									<th>Componente</th>
+									<th>Título</th>
+									<th>Contenido</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								{{ range .proposals }}
+								<tr>
+									<td>{{ .Date }}</td>
+									<td>{{ .Category }}</td>
+									<td>{{ .TruncatedTitle }}</td>
+									<td>{{ .TruncatedContent }}</td>
+									<td><a href="/propuestas/{{ .ID }}">Ver</a></td>
+								</tr>
+								{{ end }}
+								<!--
+								<tr>
+									<td>10/05/19</td>
+									<td>Gobierno Digital</td>
+									<td>Expandir modelo de evaluación del producto 7</td>
+									<td>Hola, me parece que la forma en que se propone medir...</td>
+									<td><a href="/propuesta">Ver</a></td>
+								</tr>
+								<tr>
+										<td>09/05/19</td>
+										<td>Economía Digital</td>
+										<td>Propuesta para expandir el alcance de 2.6</td>
+										<td>Hola, he estado leyendo la documentación y...</td>
+										<td><a href="/propuesta">Ver</a></td>
+									</tr>
+								-->
+							</tbody>
+						</table>
+					</div>
+				</section>
+				
+				<section>
+					<p><a href="/" class="button icon fa-home">Volver al inicio</a></p>
+				</section>
+			</div>
+		</div>
+
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Lista de correo</h2>
+
+					<p>Si queres recibir novedades relacionadas al avance del proyecto así como iniciativas organizadas
+						por la comunidad, podes suscribirte acá:</p>
+					<form action="https://agendadigital.us20.list-manage.com/subscribe/post?u=0376a474727ebb7bc56cbc38f&amp;id=cafa82cab1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+						<div class="fields">
+							<div class="field half">
+								<input type="email" name="EMAIL" id="email" placeholder="Correo Electrónico" />
+							</div>
+							<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_0376a474727ebb7bc56cbc38f_cafa82cab1" tabindex="-1" value=""></div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Suscribirme" name="subscribe" class="primary" /></li>
+						</ul>
+					</form>
+				</section>
+				<section>
+					<h2>Seguínos</h2>
+					<ul class="icons">
+						<li><a href="https://twitter.com/agendadigitalpy" class="icon style2 fa-twitter"><span
+									class="label">Twitter</span></a></li>
+						<li><a href="https://fb.me/agendadigitalpy" class="icon style2 fa-facebook"><span
+									class="label">Facebook</span></a></li>
+						<li><a href="https://chat.whatsapp.com/JbDbqE2aujCCkS9qcBP8iU" class="icon style2 fa-whatsapp"><span class="label">WhatsApp</span></a></li>
+						<li><a href="https://github.com/agendadigitalpy" class="icon style2 fa-github"><span
+									class="label">GitHub</span></a></li>
+						<li><a href="mailto:contacto@agendadigital.com.py" class="icon style2 fa-envelope-o"><span
+									class="label">Email</span></a></li>
+					</ul>
+				</section>
+				<ul class="copyright">
+					<li>Este proyecto es de código abierto y acepta colaboraciones <a
+							href="https://github.com/agendadigitalpy">aquí</a>.</li>
+							<li>Template de <a href="https://html5up.net/">HTML5UP</a></li>
+				</ul>
+			</div>
+		</footer>
+
+		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/js/browser.min.js"></script>
+		<script src="/assets/js/breakpoints.min.js"></script>
+		<script src="/assets/js/util.js"></script>
+		<script src="/assets/js/main.js"></script>
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139964338-1"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'UA-139964338-1');
+	</script>
+	
+	</body>
+	
+	</html>
+	
