@@ -27,10 +27,13 @@ const (
 )
 
 var (
-	db *mgo.Database
+	db             *mgo.Database
+	pubInfoTracker *PublicInfoTracker
 )
 
 func init() {
+	pubInfoTracker = &PublicInfoTracker{}
+	pubInfoTracker.FetchUpdates()
 	mongoURL := os.Getenv("MONGO_URL")
 	if mongoURL == "" {
 		mongoURL = defaultMongoURL
@@ -244,6 +247,12 @@ func main() {
 
 	router.GET("/seguimiento", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "seguimiento.html", gin.H{})
+	})
+
+	router.GET("/solicitudes", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "solicitudes.html", gin.H{
+			"reqs": pubInfoTracker.Reqs,
+		})
 	})
 
 	router.NoRoute(func(c *gin.Context) {

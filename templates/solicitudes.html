@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>#AgendaDigital Paraguay - Documentación</title>
+	<title>#AgendaDigital Paraguay - Solicitudes</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="/assets/css/main.css" />
@@ -29,6 +29,7 @@
 
 			</div>
 		</header>
+
 		<nav id="menu">
 			<h2>Menu</h2>
 			<ul>
@@ -47,11 +48,41 @@
 		<div id="main">
 			<div class="inner">
 				<header>
-					<h3>Documentación</h3>
-                    <iframe src="https://drive.google.com/embeddedfolderview?id=1MSPHI08I40BSx7eS4DSL6nJUBODHzrQK" width="100%" height="500px"></iframe>
-                    <p><a href="/" class="button icon fa-home">Volver al inicio</a></p>
+					<h3>Solicitudes de información pública enviadas a MITIC</h3>
 				</header>
 				<section>
+					<div class="table-wrapper">
+						<table class="alt">
+							<thead>
+								<tr>
+									<th>Fecha</th>
+									<th>Asunto</th>
+									<th>Respondida</th>
+									<th>Enlace</th>
+								</tr>
+							</thead>
+							<tbody>
+								{{ range .reqs }}
+								<tr>
+                                    <td>{{ .Date }}</td>
+                                    <td>{{ .Title }}</td>
+                                    <td>
+                                    {{ if .Replied }}
+                                    Sí
+                                    {{ else }}
+                                    No (faltan {{ .RemainingDays }} dias)
+                                    {{ end }}
+                                    </td>
+                                    <td><a target="_blank" href="http://informacionpublica.paraguay.gov.py/portal/#!/ciudadano/solicitud/{{ .ID }}">Ver</td>
+								</tr>
+								{{ end }}
+							</tbody>
+						</table>
+					</div>
+				</section>
+				<section>
+					<p><a href="/" class="button icon fa-home">Volver al inicio</a></p>
+				</section>
 			</div>
 		</div>
 
