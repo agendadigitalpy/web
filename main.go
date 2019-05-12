@@ -108,7 +108,7 @@ func renderProposal(p *Proposal) *ProposalItem {
 		CategoryLink:     catLink,
 		ID:               p.ID.Hex(),
 		Name:             p.Name,
-		Date:             ts.Format("01/02/06"),
+		Date:             ts.Format("02/01/06"),
 		TruncatedTitle:   truncate(p.Title),
 		TruncatedContent: truncate(p.Content),
 		Title:            p.Title,
