@@ -46,15 +46,23 @@
 		<div id="main">
 			<div class="inner">
 				{{ if .success }}
-				<p class="flash-success"><b>¡Gracias por tu aporte, será publicado en breve!</b></p>
+				<p class="flash-success">
+					<b>¡Gracias por tu aporte, será publicado en breve!</b>
+					<br/>
+					<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+						data-size="large" data-text="Acabo de compartir mi propuesta para la #AgendaDigital en"
+						data-url="https://www.agendadigital.com.py/propuestas" data-related="@agendadigitalpy"
+						data-lang="es" data-show-count="false">Tweet</a>
+					<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+				</p>
 				{{ end }}
-
 				{{ if .error }}
 				<p class="flash-success"><b>{{ .message }}</b></p>
 				{{ end }}
 				<header>
 					<h1>Creá tu propuesta<br /></h1>
-					<p>También podes incluir consultas puntuales sobre los distintos componentes del programa. En el caso de que necesites adjuntar más información, es posible agregar enlaces.</p>
+					<p>También podes incluir consultas puntuales sobre los distintos componentes del programa. En el
+						caso de que necesites adjuntar más información, es posible agregar enlaces.</p>
 					<p>Haremos lo posible para consultar a las autoridades y mantenerte al tanto.</p>
 					<p>Tu dirección de correo no se publicará y se almacenará con el propósito de seguimiento.</p>
 				</header>
@@ -80,7 +88,8 @@
 							</div>
 							<div class="col-12">
 								<input type="text" name="title" value=""
-									placeholder="Título de tu propuesta, ejemplo: Sugerencia para el producto 15" required>
+									placeholder="Título de tu propuesta, ejemplo: Sugerencia para el producto 15"
+									required>
 							</div>
 							<div class="col-12">
 								<div class="textarea-wrapper"><textarea name="content"
@@ -123,7 +132,7 @@
 						</table>
 					</div>
 				</section>
-				
+
 				<section>
 					<p><a href="/" class="button icon fa-home">Volver al inicio</a></p>
 				</section>
@@ -137,12 +146,16 @@
 
 					<p>Si queres recibir novedades relacionadas al avance del proyecto así como iniciativas organizadas
 						por la comunidad, podes suscribirte acá:</p>
-					<form action="https://agendadigital.us20.list-manage.com/subscribe/post?u=0376a474727ebb7bc56cbc38f&amp;id=cafa82cab1" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+					<form
+						action="https://agendadigital.us20.list-manage.com/subscribe/post?u=0376a474727ebb7bc56cbc38f&amp;id=cafa82cab1"
+						method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+						target="_blank" novalidate>
 						<div class="fields">
 							<div class="field half">
 								<input type="email" name="EMAIL" id="email" placeholder="Correo Electrónico" />
 							</div>
-							<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_0376a474727ebb7bc56cbc38f_cafa82cab1" tabindex="-1" value=""></div>
+							<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+									name="b_0376a474727ebb7bc56cbc38f_cafa82cab1" tabindex="-1" value=""></div>
 						</div>
 						<ul class="actions">
 							<li><input type="submit" value="Suscribirme" name="subscribe" class="primary" /></li>
@@ -156,7 +169,8 @@
 									class="label">Twitter</span></a></li>
 						<li><a href="https://fb.me/agendadigitalpy" class="icon style2 fa-facebook"><span
 									class="label">Facebook</span></a></li>
-						<li><a href="https://chat.whatsapp.com/JbDbqE2aujCCkS9qcBP8iU" class="icon style2 fa-whatsapp"><span class="label">WhatsApp</span></a></li>
+						<li><a href="https://chat.whatsapp.com/JbDbqE2aujCCkS9qcBP8iU"
+								class="icon style2 fa-whatsapp"><span class="label">WhatsApp</span></a></li>
 						<li><a href="https://github.com/agendadigitalpy" class="icon style2 fa-github"><span
 									class="label">GitHub</span></a></li>
 						<li><a href="mailto:contacto@agendadigital.com.py" class="icon style2 fa-envelope-o"><span
@@ -166,7 +180,7 @@
 				<ul class="copyright">
 					<li>Este proyecto es de código abierto y acepta colaboraciones <a
 							href="https://github.com/agendadigitalpy">aquí</a>.</li>
-							<li>Template de <a href="https://html5up.net/">HTML5UP</a></li>
+					<li>Template de <a href="https://html5up.net/">HTML5UP</a></li>
 				</ul>
 			</div>
 		</footer>
@@ -176,17 +190,16 @@
 		<script src="/assets/js/breakpoints.min.js"></script>
 		<script src="/assets/js/util.js"></script>
 		<script src="/assets/js/main.js"></script>
-	
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139964338-1"></script>
-	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-	
-	  gtag('config', 'UA-139964338-1');
-	</script>
-	
-	</body>
-	
-	</html>
-	
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139964338-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
+
+			gtag('config', 'UA-139964338-1');
+		</script>
+
+</body>
+
+</html>
