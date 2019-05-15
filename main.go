@@ -73,6 +73,7 @@ type ProposalItem struct {
 
 func storeProposal(p *Proposal) error {
 	p.ID = bson.NewObjectId()
+	p.Approved = true
 	return db.C(proposalsCol).Insert(p)
 }
 

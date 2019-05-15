@@ -71,7 +71,7 @@ func (p *PublicInfoTracker) FetchUpdates() error {
 		if r.Institution.ID != institutionID {
 			continue
 		}
-		if r.RemainingDays < 0 {
+		if r.State.Name == "RESPONDIDO" {
 			r.Replied = true
 		}
 		filteredReqs = append(filteredReqs, r)
